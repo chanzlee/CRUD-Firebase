@@ -7,3 +7,13 @@
 <p>
   {{ course$ | async | json }}
 </p>
+
+<p>
+  {{ author$ | async | json }}
+</p> 
+
+<ul *ngIf="author$ | async as author">
+  <li>{{author.name}}</li>
+  <li>{{author.price}}</li>
+  <li>{{author.isPremium}}</li>
+</ul>
