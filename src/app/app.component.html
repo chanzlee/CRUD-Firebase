@@ -1,6 +1,9 @@
 <button (click)="ngOnDestroy()">Go offline</button>
 <ul>
-  <li *ngFor="let course of courses">
-    {{course}}
+  <li *ngFor="let course of courses$ | async" >
+    {{course.name}}
   </li>
 </ul>
+<p>
+  {{ course$ | async | json }}
+</p>
