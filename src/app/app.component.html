@@ -1,13 +1,28 @@
-<!-- <button (click)="ngOnDestroy()">Go offline</button> -->
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let course of courseSnapshot | async">
+        {{course.name || course}}
+      <input type="text" #updatecourse [value]="course.name" />
+      <button (click)="update(course.key, updatecourse.value)">Update</button>
+      <button (click)="delete(course.key)">Delete</button>
+    </li>
+  </ul>
+  <br/>
+  <input type="text" #newcourse />
+  <button (click)="add(newcourse.value)">Add</button>
+  <br/>
+  <button (click)="deleteAll()">Delete All</button>
+  
+  
+  
+  <!-- <button (click)="ngOnDestroy()">Go offline</button> -->
 
-<input type="text" (keyup.enter)="add(course)" #course>
+<!-- <input type="text" (keyup.enter)="add(course)" #course>
 <ul>
   <li *ngFor="let course of courses$ | async" >
     {{course.name || course}}
+    <button (click)="update(course)">Update</button>
   </li>
-</ul>
-
-
+</ul> -->
 
 <!-- <p>
   {{ course$ | async | json }}
@@ -22,3 +37,5 @@
   <li>{{author.price}}</li>
   <li>{{author.isPremium}}</li>
 </ul> -->
+
+
